@@ -1,6 +1,7 @@
 # projectAngularAndCS
 
-Open the folder (Better in Visual Studio)
+Open the folder "apiForAngular" (Better in Visual Studio)
+
 run the server
 
 Then open the folder 
