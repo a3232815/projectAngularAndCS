@@ -1,0 +1,24 @@
+<nav class="navbar navbar-inverse ">
+  <div class="container-fluid navbar-header">
+    <div class="navbar-header" *ngIf="strPars">
+      <a class="navbar-brand" href="#">שלום לך, {{strPars.name}}</a>
+    </div>
+    <ul class="nav navbar-nav myFlex">
+      <li class="active"><a routerLink="">דף הבית</a></li>
+      <li *ngIf="strPars"><a routerLink="addRecipe">הוספת מתכון</a></li>
+      <li><a routerLink="allResipes">כל המתכונים</a></li>
+      <li><a routerLink="login">כניסה למשתמש</a></li>
+      <li><a routerLink="register">הרשמת משתמש</a></li>
+    </ul>
+    <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="input-filt">
+        <input type="text" class="form-control input-filt" placeholder="חיפוש לפי שם" value="" name="search"
+          [(ngModel)]="nameFilt" (keyup)="routToListWithName()">
+        <input type="text" class="form-control input-filt" placeholder="חיפוש לפי זמן הכנה" name="search"
+          [(ngModel)]="timeFilt" (keyup)="routToListWithTime()">
+        <button (click)="logOut()" class="button" *ngIf="strPars"><b>יציאת משתמש</b></button>
+      </div>
+    </form>
+  </div>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,35 @@
+
+<div *ngIf="theHome" class="myFlex" >
+<div *ngFor="let x of this.arrOutResipe"> 
+    <div class="flexOne" >
+        <button class="btnCard" (click)="f(x.id)">
+    <div class="flip-card ">
+      
+        <div class="flip-card-inner">
+          <div class="flip-card-front myFlex">
+            <img [src]="x.srcI" alt="Avatar" style="width:465px">
+          </div>
+          <div class="flip-card-back"> 
+            <h1  style="margin: auto;"> <b>{{x.name}}</b></h1>
+            <p >לחצו כאן</p>
+          </div>
+        </div>
+      </div>
+    </button>
+    </div>
+ </div>
+</div>
+<div *ngIf="theResipes" style="padding: 20px;">
+    <div class="toFlex" >
+    <div *ngFor="let x of this.resServe.arr| filteringKategory:filtKategory" >
+      <div *ngIf=" hasName">
+      <a routerLink="/recipeDetail/{{x.idResipe}}">
+        <app-small-recipe [SmallRes]="x"></app-small-recipe>
+         </a>
+        </div>
+         <router-outlet></router-outlet>
+         <div *ngIf="!hasName"> <app-small-recipe [SmallRes]="x"></app-small-recipe></div>
+    </div>
+</div>
+
+

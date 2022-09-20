@@ -1,0 +1,14 @@
+
+<div id="allThisResipe"  >
+    <h2>{{SmallRes.nameResipe}}</h2>
+    <div>דרגת קושי:
+        {{SmallRes.DifficultyLevel | difLevel}}
+    </div>
+    <div>
+        משך הכנה:
+        {{SmallRes.preparationTime | roundNumber}}
+    </div>
+    <img [src]="SmallRes.imgSrc" class="responsive" class="img">
+
+    </div>
+    

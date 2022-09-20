@@ -1,0 +1,94 @@
+
+
+<form #signupForm="ngForm">
+ <div class="coteret" ><h1> {{strPars.name}},אנחנו שמחים שבחרת לתרום לנו מנסיונך</h1></div> 
+  <div class="container">
+    <form action="/action_page.php">
+      <div class="row">
+        <div class="col-25">
+          <label>שם מתכון</label>
+        </div>
+        <div class="col-75">
+          <input type="text" placeholder="שם מתכון" name="name" [(ngModel)]="oneResipe.nameResipe" required
+            minlength="3" #oneName="ngModel">
+          <div *ngIf="oneName.errors">שם חייב להכיל לפחות 3 תווים</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label>קטגוריה</label>
+        </div>
+        <div class="col-75">
+          <select name="country"  [(ngModel)]="oneResipe.idKategory" #idK="ngModel">
+            <option value="0">מאפים</option>
+            <option value="1">סלטים</option>
+            <option value="2">עוף ובשר</option>
+            <option value="3">תוספות</option>
+            <option value="4">מרקים</option>
+            <option value="5">חלבי</option>
+          </select>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label>זמן הכנה</label>
+        </div>
+        <div class="col-75">
+          <input type="number" name="time" placeholder="זמן הכנה" [(ngModel)]="oneResipe.preparationTime" required
+            min="5" #time="ngModel">
+          <div *ngIf=" time.touched && time.errors">לא יתכן מתכון שלוקח להכין פחות מ5 דקות</div>
+        </div>
+
+        <div class="col-25">
+          <label>דרגת קושי</label>
+        </div>
+        <div class="col-75">
+          <input type="number" name="level" placeholder="דרגת קושי" [(ngModel)]="oneResipe.DifficultyLevel" required
+            min="1" nax="5" #level="ngModel">
+          <div *ngIf=" level.touched && level.errors">דרגות הקושי האפשריות הן: 1-5</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label>רכיבים</label>
+        </div>
+
+        <div class="col-75">
+          <div *ngFor="let x of this.oneResipe.components; let i=index;trackBy:trackByIdC">
+            <input type="text" [(ngModel)]=" this.oneResipe.components[i]" name="d{{i}}"
+            (keyup)=" checkArrComponents()">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label>הוראות הכנה</label>
+        </div>
+        <div class="col-75">
+          <div *ngFor="let x of this.oneResipe.preparation; let i=index;trackBy:trackByIdP">
+            <input type="text" [(ngModel)]=" this.oneResipe.preparation[i]" name="p{{i}}"
+            (keyup)=" checkArrPreparation()">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label>קישור לתמונה</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="picture" placeholder="קישור לתמונה" [(ngModel)]="oneResipe.imgSrc"
+            #picture="ngModel">
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <div class="row">
+        <button class="cancelbtn" (click)="add(signupForm)">שלח</button>
+      </div>
+    </form>
+  </div>
+  

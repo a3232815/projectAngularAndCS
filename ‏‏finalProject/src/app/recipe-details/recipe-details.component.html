@@ -1,0 +1,27 @@
+<div *ngIf= "theResipe && userNow&& userNow.id==theResipe.idMistamesh ">
+    <input type="button" value="מחיקת מתכון" (click)="deleteI()">
+    </div>
+<div id="allThisResipe" class="container" *ngIf="theResipe">
+  
+<h1>{{theResipe.nameResipe}}</h1>
+<div>דרגת קושי:
+    {{theResipe.DifficultyLevel |difLevel}}
+</div>
+<div>
+    זמן הכנה:
+   {{theResipe.preparationTime |roundNumber}}
+</div>
+<img [src]="theResipe.imgSrc" class="responsive">
+<h3>הרכיבים</h3>
+<dl>
+    <dd *ngFor="let x of theResipe.components">
+        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">{{x}} dashboard</mat-icon> -->
+       <mat-icon >done</mat-icon> {{x}}
+    </dd>   
+</dl>
+<h3>אופן ההכנה</h3>
+<ol>
+    <li *ngFor="let x of theResipe.preparation">{{x}}</li>  
+</ol>
+</div>
+

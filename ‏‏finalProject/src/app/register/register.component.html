@@ -1,0 +1,30 @@
+<form #regForm="ngForm" (ngSubmit)="f(regForm)" class="allForm">
+    <div >
+        <label>שם</label>
+    <input type="text" placeholder="שם " name="name" required 
+     [(ngModel)]="theUser.name" #id="ngModel" #n="ngModel">
+    </div>
+    <div *ngIf=" n.dirty && n.errors">שדה חובה</div>
+    <div>
+        <label>כתובת</label>
+    <input type="text" placeholder="כתובת" name="adrress"
+    [(ngModel)]="theUser.address">
+    <div>
+        <label>מייל</label>
+    <input type="text" placeholder="מייל" name="mail" #mail="ngModel" required
+    [(ngModel)]="theUser.mail">
+    </div>
+    <div *ngIf=" mail.dirty && mail.errors">שדה חובה</div>
+</div>
+    <div>
+        <label>סיסמא</label>
+    <input type="password" name="lastname" placeholder="סיסמא" [(ngModel)]="theUser.password"
+    #mistamesh="ngModel" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+  <div *ngIf=" mistamesh.dirty && mistamesh.errors">חייב להכיל לפחות ספרה אחת ואות גדולה וקטנה אחת, ולפחות 8
+    תווים או יותר</div>
+</div >
+    <input type="submit" value="הרשמה" [disabled]="!regForm.valid" class="cancelbtn">
+</form>
+<!-- <img src="../../assets/images.jpg"> -->
+<div>
+  </div>

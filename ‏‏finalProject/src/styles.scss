@@ -1,0 +1,20 @@
+.toFlex{
+    display:flex ;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content:center;
+    row-gap: 2rem;
+    column-gap: 1.5rem;
+    align-items:stretch;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f4ab36;
+    width: 100%;
+  }
+  

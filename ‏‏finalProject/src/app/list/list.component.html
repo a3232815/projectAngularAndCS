@@ -1,0 +1,19 @@
+<div style="padding: 20px;">
+    <div class="toFlex">
+        <!-- לא לשכוח לשים את זה צמוד למערך שאותו אני רוצה למיין -->
+        <!-- |filteringName:filtName //חיפוש לפי שם המתכון-->
+        <!-- | filteringKategory:filtKategory //חיפוש לפי-->
+        <!-- | filteringPrpreparationTime: filtTime  /חיפוש לפי קוד משתמש -->
+        <div *ngFor="let x of this.resServe.arr | filteringName:filt ">
+            <div *ngIf="hasName">
+                <a routerLink="/recipeDetail/{{x.idResipe}}">
+                    <app-small-recipe [SmallRes]="x"></app-small-recipe>
+                </a>
+            </div>
+            <div *ngIf="!hasName">
+                <app-small-recipe [SmallRes]="x"></app-small-recipe>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

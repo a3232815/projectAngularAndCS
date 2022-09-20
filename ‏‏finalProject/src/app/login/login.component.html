@@ -1,0 +1,11 @@
+<form #logForm="ngForm" (ngSubmit)="updateUser(logForm)">
+<div>
+<label>שם משתמש</label>
+<input type="text" placeholder="שם משתמש" name="name" [(ngModel)]="userName">
+</div>
+<div>
+<label>סיסמא</label>
+<input type="password" placeholder="סיסמא" name="pass" [(ngModel)]="userPassword">
+</div>
+<input type="submit" value="כניסה" class="cancelbtn">
+</form>
